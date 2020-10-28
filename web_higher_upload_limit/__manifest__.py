@@ -1,14 +1,13 @@
-# -*- coding: utf-8 -*-
 {
-    'version': "0.1",
+    'version': "12.0.1.0.1",
     'name': "web_higher_upload_limit",
     'summary': "Increases the upload limit",
     'category': "Extra Tools",
     'images': [],
     'application': False,
-
-    'author': "Glo Networks",
-    'website': "https://www.glo.systems/",
+    "license": "LGPL-3",
+    'author': "Glodo",
+    'website': "https://www.glodo.uk/",
     'license': "Other proprietary",
 
     'depends': ['web'],

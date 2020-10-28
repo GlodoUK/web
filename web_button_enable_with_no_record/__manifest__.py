@@ -1,13 +1,12 @@
-# -*- coding: utf-8 -*-
 {
-    "version": "0.1",
+    "version": "12.0.1.0.1",
     "name": "web_button_enable_with_no_record",
     "summary": "Allows you to force Odoo to enable a button, even if there is no record",
     "category": "Extra Tools",
     "images": [],
     "application": False,
-    "author": "Glo Networks",
-    "website": "https://www.glo.systems/",
+    "author": "Glodo",
+    "website": "https://www.glodo.uk/",
     "license": "LGPL-3",
     "depends": ["web"],
     "external_dependencies": {"python": [], "bin": []},

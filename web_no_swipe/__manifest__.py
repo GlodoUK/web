@@ -5,8 +5,8 @@
     "category": "Hidden",
     "images": [],
     "application": False,
-    "author": "Glo Networks",
-    "website": "https://www.glo.systems/",
+    "author": "Glodo",
+    "website": "https://www.glodo.uk/",
     "license": "Other proprietary",
     "depends": ["web"],
     "external_dependencies": {"python": [], "bin": []},
@@ -19,4 +19,5 @@
     "uninstall_hook": None,
     "auto_install": False,
     "installable": True,
+    "license": "LGPL-3",
 }
