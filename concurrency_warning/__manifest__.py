@@ -11,8 +11,6 @@
     "depends": [
         "base",
         "base_automation",
-        "sale_management",
-        "purchase"
     ],
     "data": ["views/templates.xml"],
     "demo": [],
