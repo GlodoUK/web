@@ -14,7 +14,7 @@
         "sale_management",
         "purchase"
     ],
-    "data": ["data/base_automation.xml", "views/templates.xml"],
+    "data": ["views/templates.xml"],
     "demo": [],
     "license": "LGPL-3",
 }
