@@ -37,8 +37,11 @@ odoo.define('glodo_helpdesk_live_update.client_poke', function (require) {
         if (!action || !controller || Session.uid === message.uid)
           return;
 
+        // Not 100% happy with this but it seems to be the most
+        // "persistent" way of getting the current record ID.
+        let currentId = parseInt(this._current_state.id);
         // Are we looking at the same individual record?
-        if (controller.widget.modelName === message.model && !controller.widget.isMultiRecord && message.ids.includes(action.context.params.id)) {
+        if (controller.widget.modelName === message.model && !controller.widget.isMultiRecord && message.ids.includes(currentId)) {
             controller.widget.reload()
             this.do_warn(
             _t("Warning"),
