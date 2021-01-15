@@ -4,7 +4,7 @@
     "development_status": "Alpha",
     "category": "Hidden",
     "version": "13.0.1.0.0",
-    "depends": ["web", "base_setup"],
+    "depends": ["web"],
     "data": ["views/assets.xml"],
     "qweb": ["static/xml/templates.xml"],
     "auto_install": True,
