@@ -6,6 +6,7 @@ class ServerActions(models.Model):
 
     state = fields.Selection(
         selection_add=[("poke", "Prompt user that record has changed")]
+        ondelete={"poke": "cascade"},
     )
 
     @api.model
