@@ -5,7 +5,7 @@ class ServerActions(models.Model):
     _inherit = "ir.actions.server"
 
     state = fields.Selection(
-        selection_add=[("poke", "Prompt user that record has changed")]
+        selection_add=[("poke", "Prompt user that record has changed")],
         ondelete={"poke": "cascade"},
     )
 
