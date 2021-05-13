@@ -7,7 +7,7 @@
     "depends": ["web"],
     "data": ["views/assets.xml"],
     "qweb": ["static/xml/templates.xml"],
-    "auto_install": True,
+    "auto_install": False,
     "author": "Glodo",
     "website": "https://www.glodo.uk/",
     "license": "LGPL-3",
