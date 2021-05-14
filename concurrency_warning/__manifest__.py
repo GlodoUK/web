@@ -9,7 +9,7 @@
     "author": "Glodo",
     "website": "https://www.glodo.uk/",
     "category": "Uncategorized",
-    "version": "13.0.1.0.0",
+    "version": "14.0.1.0.0",
     "depends": [
         "base",
         "base_automation",
