@@ -1,4 +1,4 @@
-from odoo import api, fields, models
+from odoo import fields, models
 
 
 class ServerActions(models.Model):
@@ -9,30 +9,23 @@ class ServerActions(models.Model):
         ondelete={"poke": "cascade"},
     )
 
-    @api.model
-    def run_action_poke_multi(self, action, eval_context={}):
-        # Use a set rather than a list because it prevents duplicate ids when
-        # calling union()
-        record_set = set()
-        newly_created = False
+    def _run_action_poke_multi(self, eval_context=None):
+        if eval_context is None:
+            eval_context = {}
 
-        record = eval_context.get("record", None)
-        if record:
-            record_set = record_set.union(record.ids)
-            if record.exists() and record.create_date == record.write_date:
-                newly_created = True
+        records = eval_context.get("records") or eval_context.get("record")
+        if not records:
+            return False
 
-        records = eval_context.get("records", None)
-        if records:
-            record_set = record_set.union(records.ids)
-
-        self.env["bus.bus"].sendone(
+        self.env["bus.bus"]._sendone(
+            "broadcast",
             "poke",
             {
                 "uid": self.env.uid,
                 "username": self.env.user.name,
-                "model": action.model_name,
-                "ids": list(record_set),
-                "create": newly_created,
+                "model": self.model_name,
+                "ids": records.ids,
             },
         )
+
+        return False

@@ -1,20 +1,20 @@
 {
     "name": "concurrency_warning",
-    "summary": """Issue a concurrency warning and reload
+    "summary": """Issue a visual warning and reload
     the page content if a user has left a model
     open, and it been altered in the meantime.""",
-    "description": """Issue a concurrency warning and reload
-    the page content if a user has left a model
-    open, and it been altered in the meantime.""",
-    "author": "Glodo",
-    "website": "https://www.glodo.uk/",
+    "author": "Glo Networks",
+    "website": "https://github.com/glodouk/web",
     "category": "Uncategorized",
-    "version": "14.0.1.0.0",
+    "version": "15.0.1.0.0",
     "depends": [
-        "base",
+        "bus",
         "base_automation",
     ],
-    "data": ["views/templates.xml"],
+    "data": [],
     "demo": [],
     "license": "LGPL-3",
+    "assets": {
+        "web.assets_backend": ["/concurrency_warning/static/src/js/client_poke.js"],
+    },
 }
