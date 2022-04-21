@@ -4,4 +4,6 @@ from odoo import fields, models
 class ActWindowView(models.Model):
     _inherit = "ir.actions.act_window.view"
 
-    view_mode = fields.Selection(selection_add=[("leaflet", "Map (Leaflet)")])
+    view_mode = fields.Selection(
+        selection_add=[("leaflet", "Map (Leaflet)")], ondelete={"leaflet": "cascade"}
+    )
