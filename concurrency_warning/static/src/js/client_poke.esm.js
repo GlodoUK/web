@@ -1,27 +1,20 @@
 /** @odoo-module **/
 
-import {registry} from "@web/core/registry";
 import {debounce} from "@web/core/utils/timing";
+import {registry} from "@web/core/registry";
 
 const concurrencyWarning = {
     dependencies: ["action", "notification", "user"],
 
     _willDelete() {
-        if (this.env.services["bus_service"]) {
-            this.env.services["bus_service"].off("notification");
-            this.env.services["bus_service"].stopPolling();
+        if (this.env.services.bus_service) {
+            this.env.services.bus_service.off("notification");
+            this.env.services.bus_service.stopPolling();
         }
         return super._willDelete(...arguments);
     },
 
     start(env, {action, notification, user}) {
-        env.bus.on("WEB_CLIENT_READY", null, async () => {
-            const legacyEnv = owl.Component.env;
-
-            legacyEnv.services.bus_service.onNotification(this, _handleNotifications);
-            legacyEnv.services.bus_service.startPolling();
-        });
-
         const _doNotify = debounce(function (payload) {
             notification.add(
                 _.str.sprintf(
@@ -49,13 +42,13 @@ const concurrencyWarning = {
                 if (
                     !action ||
                     !action.currentController ||
-                    user.userId == payload.uid
+                    user.userId === payload.uid
                 ) {
                     continue;
                 }
 
                 if (
-                    action.currentController.props.resModel == payload.model &&
+                    action.currentController.props.resModel === payload.model &&
                     payload.ids.includes(action.currentController.props.resId) &&
                     !action.currentController.view.multiRecord
                 ) {
@@ -63,6 +56,13 @@ const concurrencyWarning = {
                 }
             }
         }
+
+        env.bus.on("WEB_CLIENT_READY", null, async () => {
+            const legacyEnv = owl.Component.env;
+
+            legacyEnv.services.bus_service.onNotification(this, _handleNotifications);
+            legacyEnv.services.bus_service.startPolling();
+        });
     },
 };
 

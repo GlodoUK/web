@@ -15,6 +15,6 @@
     "demo": [],
     "license": "LGPL-3",
     "assets": {
-        "web.assets_backend": ["/concurrency_warning/static/src/js/client_poke.js"],
+        "web.assets_backend": ["/concurrency_warning/static/src/js/client_poke.esm.js"],
     },
 }
