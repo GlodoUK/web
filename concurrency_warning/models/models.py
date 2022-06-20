@@ -27,5 +27,4 @@ class ServerActions(models.Model):
                 "ids": records.ids,
             },
         )
-
         return False
