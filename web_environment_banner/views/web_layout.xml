@@ -1,0 +1,14 @@
+<odoo>
+    <record id="web_layout" model="ir.ui.view">
+        <field name="name">web_layout</field>
+        <field name="model" />
+        <field name="priority">8</field>
+        <field name="inherit_id" ref="web.layout" />
+        <field name="arch" type="xml">
+            <xpath expr="//body/*[1]" position="before">
+                <t t-raw="request.env['web.environment.banner']._render()" />
+            </xpath>
+        </field>
+
+    </record>
+</odoo>
