@@ -45,18 +45,10 @@ odoo.define("web_leaflet.LeafletRenderer", function (require) {
             this.leafletTileTemplate =
                 "https://a.tile.openstreetmap.org/{z}/{x}/{y}.png";
 
-            this.qweb = new QWeb(
-                config.isDebug(),
-                {
-                    _s: session.origin,
-                },
-                false
-            );
-
             var templates = findTemplates(this.arch, function (n) {
                 return n.tag === "templates";
             });
-            this.qweb.add_template(utils.json_node_to_xml(templates));
+            qweb.add_template(utils.json_node_to_xml(templates));
         },
 
         on_attach_callback: function () {

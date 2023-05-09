@@ -8,8 +8,8 @@
     "data": [],
     "qweb": ["static/xml/templates.xml"],
     "auto_install": False,
-    "author": "Glodo",
-    "website": "https://www.glodo.uk/",
+    "author": "Glo Networks",
+    "website": "https://github.com/GlodoUK/web",
     "license": "LGPL-3",
     "assets": {
         "web.assets_backend": [
