@@ -22,10 +22,8 @@ odoo.define("web_leaflet.LeafletRenderer", function (require) {
     var field_utils = require("web.field_utils");
     var utils = require("web.utils");
     var qweb = core.qweb;
-    var config = require("web.config");
     var session = require("web.session");
     var pyUtils = require("web.py_utils");
-    var QWeb = require("web.QWeb");
 
     var LeafletRenderer = AbstractRenderer.extend({
         className: "o_leaflet_view row no-gutters",
