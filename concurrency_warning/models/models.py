@@ -17,6 +17,10 @@ class ServerActions(models.Model):
         if not records:
             return False
 
+        for record in records:
+            if not record.id:
+                return False
+
         self.env["bus.bus"]._sendone(
             "broadcast",
             "poke",
