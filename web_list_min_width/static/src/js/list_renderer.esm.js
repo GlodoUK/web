@@ -5,7 +5,7 @@ import {patch} from "@web/core/utils/patch";
 
 patch(ListRenderer.prototype, "web_list_min_width", {
     calculateColumnWidth(column) {
-        // backwards compat
+        // Backwards compat
         if (
             column.rawAttrs !== undefined &&
             column.rawAttrs["min-width"] !== undefined
@@ -16,10 +16,7 @@ patch(ListRenderer.prototype, "web_list_min_width", {
             };
         }
 
-        if (
-            column.options !== undefined &&
-            column.options['min-width'] !== undefined
-        ) {
+        if (column.options !== undefined && column.options["min-width"] !== undefined) {
             return {
                 type: "absolute",
                 value: column.options["min-width"],
