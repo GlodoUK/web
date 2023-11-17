@@ -32,13 +32,16 @@ class ServerActions(models.Model):
         if not records:
             return False
 
+        records = records.filtered(lambda r: not isinstance(r.id, models.NewId))
+        if not records:
+            return False
+
         bcast = self._run_action_poke_multi_broadcast_vals(records)
 
         if not bcast:
             return False
 
         self.env["bus.bus"]._sendone("broadcast", "poke", bcast)
-
         return False
 
     def _run_action_poke_multi_broadcast_vals(self, records):
